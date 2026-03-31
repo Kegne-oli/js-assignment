@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Task Management System</h1>
+        
+        <div class="task-form">
+            <input id="title" placeholder="Task title" required>
+            <input id="desc" placeholder="Description">
+            <input type="date" id="dueDate">
+            <select id="priority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <button onclick="TaskManager.addTask()">Add Task</button>
+        </div>
+        
+        <div class="stats-section">
+            <div class="stats">
+                <span>Total: <span id="total">0</span></span>
+                <span>Completed: <span id="completed">0</span></span>
+                <span>High Priority: <span id="high">0</span></span>
+            </div>
+            <div class="filters">
+                <input id="filter" placeholder="Filter tasks..." oninput="TaskManager.filterTasks()">
+                <button class="filter-btn" onclick="TaskManager.setFilter('all')">All</button>
+                <button class="filter-btn" onclick="TaskManager.setFilter('pending')">Pending</button>
+                <button class="filter-btn" onclick="TaskManager.setFilter('completed')">Completed</button>
+                <button class="filter-btn" onclick="TaskManager.setFilter('high')">High Priority</button>
+            </div>
+        </div>
+        
+        <ul id="taskList" class="task-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
